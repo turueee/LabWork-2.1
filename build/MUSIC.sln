@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{70C8C205-86DF-35ED-8775-900283D1D227}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7AA31684-38B4-3EF1-803E-9574B9551827} = {7AA31684-38B4-3EF1-803E-9574B9551827}
+		{5F5149AC-CF33-3626-BD38-237871EB9ED8} = {5F5149AC-CF33-3626-BD38-237871EB9ED8}
+		{22460FA1-A2EC-30ED-A80C-A3973BFCC992} = {22460FA1-A2EC-30ED-A80C-A3973BFCC992}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MusicApplication", "Main\MusicApplication.vcxproj", "{7AA31684-38B4-3EF1-803E-9574B9551827}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F5149AC-CF33-3626-BD38-237871EB9ED8} = {5F5149AC-CF33-3626-BD38-237871EB9ED8}
+		{22460FA1-A2EC-30ED-A80C-A3973BFCC992} = {22460FA1-A2EC-30ED-A80C-A3973BFCC992}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MusicLibrary", "Music\MusicLibrary.vcxproj", "{5F5149AC-CF33-3626-BD38-237871EB9ED8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{22460FA1-A2EC-30ED-A80C-A3973BFCC992} = {22460FA1-A2EC-30ED-A80C-A3973BFCC992}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{22460FA1-A2EC-30ED-A80C-A3973BFCC992}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70C8C205-86DF-35ED-8775-900283D1D227}.Debug|x64.ActiveCfg = Debug|x64
+		{70C8C205-86DF-35ED-8775-900283D1D227}.Release|x64.ActiveCfg = Release|x64
+		{7AA31684-38B4-3EF1-803E-9574B9551827}.Debug|x64.ActiveCfg = Debug|x64
+		{7AA31684-38B4-3EF1-803E-9574B9551827}.Debug|x64.Build.0 = Debug|x64
+		{7AA31684-38B4-3EF1-803E-9574B9551827}.Release|x64.ActiveCfg = Release|x64
+		{7AA31684-38B4-3EF1-803E-9574B9551827}.Release|x64.Build.0 = Release|x64
+		{5F5149AC-CF33-3626-BD38-237871EB9ED8}.Debug|x64.ActiveCfg = Debug|x64
+		{5F5149AC-CF33-3626-BD38-237871EB9ED8}.Debug|x64.Build.0 = Debug|x64
+		{5F5149AC-CF33-3626-BD38-237871EB9ED8}.Release|x64.ActiveCfg = Release|x64
+		{5F5149AC-CF33-3626-BD38-237871EB9ED8}.Release|x64.Build.0 = Release|x64
+		{22460FA1-A2EC-30ED-A80C-A3973BFCC992}.Debug|x64.ActiveCfg = Debug|x64
+		{22460FA1-A2EC-30ED-A80C-A3973BFCC992}.Debug|x64.Build.0 = Debug|x64
+		{22460FA1-A2EC-30ED-A80C-A3973BFCC992}.Release|x64.ActiveCfg = Release|x64
+		{22460FA1-A2EC-30ED-A80C-A3973BFCC992}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0218B4FE-DC47-30D7-A916-7BBD9CCFF465}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

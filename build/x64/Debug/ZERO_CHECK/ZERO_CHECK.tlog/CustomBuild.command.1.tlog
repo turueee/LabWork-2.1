@@ -1,0 +1,10 @@
+^C:\USERS\TURUS\DESKTOP\LABWORK-2.1\BUILD\CMAKEFILES\0452613487A6C63D46C6BDC4AC433A05\GENERATE.STAMP.RULE
+setlocal
+"D:\New Folder\bin\cmake.exe" -SC:/Users/turus/Desktop/LabWork-2.1 -BC:/Users/turus/Desktop/LabWork-2.1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/turus/Desktop/LabWork-2.1/build/MUSIC.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
