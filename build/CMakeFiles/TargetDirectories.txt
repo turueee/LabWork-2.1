@@ -1,4 +1,0 @@
-C:/Users/turus/Desktop/LabWork-2.1/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/turus/Desktop/LabWork-2.1/build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/turus/Desktop/LabWork-2.1/build/Music/CMakeFiles/MusicLibrary.dir
-C:/Users/turus/Desktop/LabWork-2.1/build/Main/CMakeFiles/MusicApplication.dir
