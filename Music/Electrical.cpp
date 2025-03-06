@@ -7,7 +7,6 @@ Electrical::Electrical()
 }
 Electrical::~Electrical()
 {
-  cout << "Delete";
 }
 
 bool Electrical::get_orchestra()

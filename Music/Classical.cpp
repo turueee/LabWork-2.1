@@ -7,7 +7,6 @@ Classical::Classical()
 }
 Classical::~Classical()
 {
-  cout << "Delete";
 }
 
 bool Classical::get_orchestra()

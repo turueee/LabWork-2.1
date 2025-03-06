@@ -6,7 +6,6 @@ using namespace std;
 //Конструкторы
 All_Instruments::All_Instruments()
 {
-  cout << "Ready 1" << endl;
   name = nullptr;
   count = 0;
 }
@@ -35,7 +34,6 @@ void All_Instruments::set_count(int count_)
 //Геттеры
 char* All_Instruments::get_name()
 {
-  cout << "Ready 2" << endl;
   if (name != nullptr)
     return name;
   else
@@ -44,7 +42,6 @@ char* All_Instruments::get_name()
 
 int All_Instruments::get_count()
 {
-  cout << "Ready 3" << endl;
   return count;
 }
 
