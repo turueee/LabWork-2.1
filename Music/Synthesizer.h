@@ -1,10 +1,9 @@
 #pragma once
-#include <iostream>
 #include "Electrical.h"
 
-class Synthesizer :public Electrical
+class Synthesizer :private Electrical
 {
-protected:
+private:
   char* name_of_parent;
 public:
   Synthesizer();

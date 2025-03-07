@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "All_Instruments.h"
 
 class Electrical : public All_Instruments

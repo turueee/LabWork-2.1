@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Electrical.h"
 
 Electrical::Electrical()

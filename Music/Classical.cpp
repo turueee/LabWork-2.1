@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Classical.h"
 
 Classical::Classical()
