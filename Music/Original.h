@@ -1,12 +1,13 @@
 #pragma once
 #include <Electrical.h>
 
-class Original :private Electrical
+class Original final:private Electrical
 {
 private:
   int year_of_made;
 public:
   Original();
+  Original(Original& ins);
   ~Original();
   int get_year_of_made();
   void set_year_of_made(int year);

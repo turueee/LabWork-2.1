@@ -46,12 +46,14 @@ istream& operator>>(istream& i, Electrical& ins)
   char name[256];
   int count = 0;
   bool orch;
-  cout << "Enter the name of the musical instrument:";
+  cout << "Enter the name of the musical instrument: ";
   i >> name;
-  cout << "Enter the count of the musical instruments:";
+  cout << "Enter the count of the musical instruments: ";
   i >> count;
-  cout << "Is this instrument in orchestra?";
+  cout << "Is this instrument in orchestra? ";
   i >> orch;
+  if (count < 0)
+    count = 0;
   ins.set_count(count);
   ins.set_name(name);
   ins.set_orchestra(orch);

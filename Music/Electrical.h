@@ -10,7 +10,7 @@ public:
   Electrical();
   Electrical(Electrical& ins);
   //Деструктор
-  ~Electrical();
+  virtual ~Electrical();
   //Геттеры
   virtual bool get_orchestra();
   //Сеттеры

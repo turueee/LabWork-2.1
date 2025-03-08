@@ -10,7 +10,7 @@ public:
   Classical();
   Classical(Classical& ins);
   //Деструктор
-  ~Classical();
+  virtual ~Classical();
   //Геттеры
   virtual bool get_orchestra();
   //Сеттеры

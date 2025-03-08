@@ -6,6 +6,22 @@ Symphonic::Symphonic()
 }
 
 
+Symphonic::Symphonic(Symphonic& ins)
+{
+  count = ins.get_count();
+  name = new char[256];
+  int i = 0;
+  while (ins.get_name()[i] != '\0')
+  {
+    name[i] = ins.get_name()[i];
+    ++i;
+  }
+  name[i] = '\0';
+  orchestra = ins.get_orchestra();
+  standart_count_in_orchestra = ins.get_standart_count_in_orchestra();
+}
+
+
 Symphonic::~Symphonic()
 {
 }
@@ -29,9 +45,9 @@ ostream& operator<<(ostream& o, Symphonic& ins)
 {
   cout << "This instrument is symphonic\n";
   if (ins.get_orchestra() == true)
-    o << "Musical Instrument: " << ins.get_name() << "\nStandart count in orchestra" << ins.get_standart_count_in_orchestra() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
+    o << "Musical Instrument: " << ins.get_name() << "\nStandart count in orchestra: " << ins.get_standart_count_in_orchestra() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
   else
-    o << "Musical Instrument: " << ins.get_name() << "\nStandart count in orchestra" << ins.get_standart_count_in_orchestra() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
+    o << "Musical Instrument: " << ins.get_name() << "\nStandart count in orchestra: " << ins.get_standart_count_in_orchestra() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
   return o;
 }
 
@@ -50,6 +66,10 @@ istream& operator>>(istream& i, Symphonic& ins)
   i >> count;
   cout << "Is this instrument in orchestra? ";
   i >> orch;
+  if (count < 0)
+    count = 0;
+  if (scount < 0)
+    scount = 0;
   ins.set_count(count);
   ins.set_name(name);
   ins.set_orchestra(orch);
