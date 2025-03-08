@@ -9,6 +9,18 @@ All_Instruments::All_Instruments()
   name = nullptr;
   count = 0;
 }
+All_Instruments::All_Instruments(All_Instruments& ins)
+{
+  count = ins.get_count();
+  name = new char[256];
+  int i = 0;
+  while (ins.get_name()[i] != '\0')
+  {
+    name[i] = ins.get_name()[i];
+    ++i;
+  }
+  name[i] = '\0';
+}
 //Деструкторы
 All_Instruments::~All_Instruments()
 {
@@ -48,17 +60,19 @@ int All_Instruments::get_count()
 
 ostream& operator<<(ostream& o, All_Instruments& ins)
 {
-  o << "Musical Instrument: " << ins.get_name() << "\n" << "Count: " << ins.get_count() << endl;
+  o << "Musical instrument: " << ins.get_name() << "\n" << "Count: " << ins.get_count() << endl;
   return o;
 }
 istream& operator>>(istream& i, All_Instruments& ins)
 {
   int count;
   char name[256];
-  cout << "Enter the name of the musical instrument:";
+  cout << "Enter the name of the musical instrument: ";
   i >> name;
-  cout << "Enter the count of the musical instruments:";
+  cout << "Enter the count of the musical instruments: ";
   i >> count;
+  if (count < 0)
+    count = 0;
   ins.set_count(count);
   ins.set_name(name);
   return i;

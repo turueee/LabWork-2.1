@@ -8,12 +8,13 @@ protected:
 public:
   //Конструктор
   Classical();
+  Classical(Classical& ins);
   //Деструктор
   ~Classical();
   //Геттеры
-  bool get_orchestra();
+  virtual bool get_orchestra();
   //Сеттеры
-  void set_orchestra(bool orch);
+  virtual void set_orchestra(bool orch);
 
   friend ostream& operator<<(ostream& o, Classical& ins);
   friend istream& operator>>(istream& i, Classical& ins);

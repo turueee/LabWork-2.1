@@ -8,12 +8,13 @@ protected:
 public:
   //Конструктор
   Electrical();
+  Electrical(Electrical& ins);
   //Деструктор
   ~Electrical();
   //Геттеры
-  bool get_orchestra();
+  virtual bool get_orchestra();
   //Сеттеры
-  void set_orchestra(bool orch);
+  virtual void set_orchestra(bool orch);
 
   friend ostream& operator<<(ostream& o, Electrical& ins);
   friend istream& operator>>(istream& i, Electrical& ins);

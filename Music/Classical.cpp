@@ -1,8 +1,21 @@
 #include "Classical.h"
 
-Classical::Classical()
+Classical::Classical():All_Instruments()
 {
   orchestra = false;
+}
+Classical::Classical(Classical& ins)
+{
+  count = ins.get_count();
+  name = new char[256];
+  int i = 0;
+  while (ins.get_name()[i] != '\0')
+  {
+    name[i] = ins.get_name()[i];
+    ++i;
+  }
+  name[i] = '\0';
+  orchestra = ins.get_orchestra();
 }
 Classical::~Classical()
 {

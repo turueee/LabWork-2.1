@@ -10,6 +10,7 @@ protected:
 public:
   //Конструкторы
   All_Instruments();
+  All_Instruments(All_Instruments& ins);
   //Деструктор
   virtual ~All_Instruments();
   //Сеттеры
