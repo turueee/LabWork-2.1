@@ -25,9 +25,11 @@
 *.la
 *.a
 *.lib
+
 # Executables
 *.exe
 *.out
 *.app
 
+# Directories
 /build
