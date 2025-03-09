@@ -1,12 +1,13 @@
 #pragma once
 #include "Classical.h"
 
-class Folk final:private Classical
+class Folk final:public Classical
 {
 private:
   char* country;
 public:
   Folk();
+  Folk(int count);
   Folk(Folk& ins);
   ~Folk();
   char* get_country();

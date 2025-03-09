@@ -1,12 +1,13 @@
 #pragma once
 #include "Electrical.h"
 
-class Synthesizer final:private Electrical
+class Synthesizer final:public Electrical
 {
 private:
   char* name_of_parent;
 public:
   Synthesizer();
+  Synthesizer(int count);
   Synthesizer(Synthesizer& ins);
   ~Synthesizer();
   char* get_name_of_parent();

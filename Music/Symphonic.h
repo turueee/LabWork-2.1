@@ -1,12 +1,13 @@
 #pragma once
 #include <Classical.h>
 
-class Symphonic :private Classical
+class Symphonic :public Classical
 {
 private:
   int standart_count_in_orchestra;
 public:
   Symphonic();
+  Symphonic(int count, int scount);
   Symphonic(Symphonic& ins);
   ~Symphonic();
   int get_standart_count_in_orchestra();

@@ -3,9 +3,19 @@
 
 
 Synthesizer::Synthesizer()
+{
+  name_of_parent = nullptr;
+}
+
+Synthesizer::Synthesizer(int count_) :Synthesizer::Synthesizer()
+{
+  if (count_ < 0)
   {
-    name_of_parent = nullptr;
+    throw(1);
   }
+  else
+    count = count_;
+}
 Synthesizer::Synthesizer(Synthesizer& ins)
 {
   count = ins.get_count();

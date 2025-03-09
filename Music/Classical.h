@@ -8,6 +8,7 @@ protected:
 public:
   //Конструктор
   Classical();
+  Classical(int count);
   Classical(Classical& ins);
   //Деструктор
   virtual ~Classical();

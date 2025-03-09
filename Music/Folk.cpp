@@ -4,6 +4,19 @@ Folk::Folk()
 {
   country = nullptr;
 }
+
+
+Folk::Folk(int count_) :Folk::Folk()
+{
+  if (count_ < 0)
+  {
+    throw(1);
+  }
+  else
+    count = count_;
+}
+
+
 Folk::Folk(Folk& ins)
 {
   count = ins.get_count();

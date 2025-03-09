@@ -6,6 +6,18 @@ Original::Original()
 }
 
 
+Original::Original(int count_, int year):Original::Original()
+{
+  if (count_ < 0 || year < 1901)
+    throw(1);
+  else
+  {
+    count = count_;
+    year_of_made = year;
+  }
+}
+
+
 Original::Original(Original& ins)
 {
   count = ins.get_count();

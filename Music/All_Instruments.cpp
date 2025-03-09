@@ -9,6 +9,16 @@ All_Instruments::All_Instruments()
   name = nullptr;
   count = 0;
 }
+
+All_Instruments::All_Instruments(int count_):All_Instruments::All_Instruments()
+{
+  if (count_ < 0)
+  {
+    throw(1);
+  }
+  else
+    count = count_;
+}
 All_Instruments::All_Instruments(All_Instruments& ins)
 {
   count = ins.get_count();

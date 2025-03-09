@@ -4,6 +4,17 @@ Electrical::Electrical()
 {
   orchestra = false;
 }
+
+
+Electrical::Electrical(int count_) :Electrical::Electrical()
+{
+  if (count_ < 0)
+  {
+    throw(1);
+  }
+  else
+    count = count_;
+}
 Electrical::Electrical(Electrical& ins)
 {
   count = ins.get_count();

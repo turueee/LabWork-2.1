@@ -6,6 +6,18 @@ Symphonic::Symphonic()
 }
 
 
+Symphonic::Symphonic(int count_, int scount):Symphonic::Symphonic()
+{
+  if (count_ < 0 || scount < 0)
+    throw(1);
+  else
+  {
+    count = count_;
+    standart_count_in_orchestra = scount;
+  }
+}
+
+
 Symphonic::Symphonic(Symphonic& ins)
 {
   count = ins.get_count();

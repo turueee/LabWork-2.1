@@ -4,6 +4,16 @@ Classical::Classical():All_Instruments()
 {
   orchestra = false;
 }
+
+Classical::Classical(int count_) :Classical::Classical()
+{
+  if (count_ < 0)
+  {
+    throw(1);
+  }
+  else
+    count = count_;
+}
 Classical::Classical(Classical& ins)
 {
   count = ins.get_count();

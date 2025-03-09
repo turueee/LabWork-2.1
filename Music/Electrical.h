@@ -8,6 +8,7 @@ protected:
 public:
   //Конструктор
   Electrical();
+  Electrical(int count);
   Electrical(Electrical& ins);
   //Деструктор
   virtual ~Electrical();

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1) #Проверка версии CMake.
+cmake_minimum_required(VERSION 3.5) #Проверка версии CMake.
 
 set(PROJECT_NAME MUSIC) #Создаем обычную локальную переменную с именем проекта
 project(${PROJECT_NAME}) # Название проекта
@@ -16,6 +16,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Music) #Добавляем ди�
 
 add_subdirectory(Music) #Добавляем директорию с под-CMakeList-ом, и выполняем под-CMakeList
 add_subdirectory(Main)
+add_subdirectory(test)
+add_subdirectory(gtest)
 
 
 #file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
