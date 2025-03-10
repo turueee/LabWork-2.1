@@ -1,22 +1,22 @@
 #pragma once
 #include "All_Instruments.h"
 
-class Classical : public All_Instruments
+class TClassical : public TAllInstruments
 {
 protected:
   bool orchestra;
 public:
   //Конструктор
-  Classical();
-  Classical(int count);
-  Classical(Classical& ins);
+  TClassical();
+  TClassical(int count);
+  TClassical(TClassical& ins);
   //Деструктор
-  virtual ~Classical();
+  virtual ~TClassical();
   //Геттеры
-  virtual bool get_orchestra();
+  virtual bool GetOrchestra();
   //Сеттеры
-  virtual void set_orchestra(bool orch);
+  virtual void SetOrchestra(bool orch);
 
-  friend ostream& operator<<(ostream& o, Classical& ins);
-  friend istream& operator>>(istream& i, Classical& ins);
+  friend ostream& operator<<(ostream& o, TClassical& ins);
+  friend istream& operator>>(istream& i, TClassical& ins);
 };

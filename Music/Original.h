@@ -1,17 +1,17 @@
 #pragma once
 #include <Electrical.h>
 
-class Original final:public Electrical
+class TOriginal final:public TElectrical
 {
 private:
-  int year_of_made;
+  int yearOfMade;
 public:
-  Original();
-  Original(int count, int year);
-  Original(Original& ins);
-  ~Original();
-  int get_year_of_made();
-  void set_year_of_made(int year);
-  friend ostream& operator<<(ostream& o, Original& ins);
-  friend istream& operator>>(istream& i, Original& ins);
+  TOriginal();
+  TOriginal(int count, int year);
+  TOriginal(TOriginal& ins);
+  ~TOriginal();
+  int GetYearOfMade();
+  void SetYearOfMade(int year);
+  friend ostream& operator<<(ostream& o, TOriginal& ins);
+  friend istream& operator>>(istream& i, TOriginal& ins);
 };

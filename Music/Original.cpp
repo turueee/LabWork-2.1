@@ -1,70 +1,75 @@
 #include "Original.h"
 
-Original::Original()
+TOriginal::TOriginal()
 {
-  year_of_made = 1901;
+  yearOfMade = 1901;
 }
 
 
-Original::Original(int count_, int year):Original::Original()
+TOriginal::TOriginal(int count_, int year):TOriginal::TOriginal()
 {
   if (count_ < 0 || year < 1901)
     throw(1);
   else
   {
     count = count_;
-    year_of_made = year;
+    yearOfMade = year;
   }
 }
 
 
-Original::Original(Original& ins)
+TOriginal::TOriginal(TOriginal& ins)
 {
-  count = ins.get_count();
-  name = new char[256];
-  int i = 0;
-  while (ins.get_name()[i] != '\0')
+  count = ins.GetCount();
+  if (ins.GetName() != nullptr)
   {
-    name[i] = ins.get_name()[i];
-    ++i;
+    name = new char[256];
+    int i = 0;
+    while (ins.GetName()[i] != '\0')
+    {
+      name[i] = ins.GetName()[i];
+      ++i;
+    }
+    name[i] = '\0';
   }
-  name[i] = '\0';
-  orchestra = ins.get_orchestra();
-  year_of_made = ins.get_year_of_made();
+  else
+    name = nullptr;
+  orchestra = ins.GetOrchestra();
+  yearOfMade = ins.GetYearOfMade();
 }
 
 
-Original::~Original()
+TOriginal::~TOriginal()
 {
 }
 
 
-int Original::get_year_of_made()
+int TOriginal::GetYearOfMade()
 {
-  return year_of_made;
+  return yearOfMade;
 }
 
 
-void Original::set_year_of_made(int year)
+void TOriginal::SetYearOfMade(int year)
 {
   if (year < 1901)
     year = 1901;
-  year_of_made = year;
+  yearOfMade = year;
 }
 
 
-ostream& operator<<(ostream& o, Original& ins)
+ostream& operator<<(ostream& o, TOriginal& ins)
 {
   cout << "This instrument is original electrical\n";
-  if (ins.get_orchestra() == true)
-    o << "Musical Instrument: " << ins.get_name() << "\nYear of made: " << ins.get_year_of_made() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
+  if (ins.GetOrchestra() == true)
+    o << "Musical Instrument: " << ins.GetName() << "\nYear of made: " << ins.GetYearOfMade() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument in orchestra." << endl;
   else
-    o << "Musical Instrument: " << ins.get_name() << "\nYear of made: " << ins.get_year_of_made() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
+    o << "Musical Instrument: " << ins.GetName() << "\nYear of made: " << ins.GetYearOfMade() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument not in orchestra." << endl;
   return o;
 }
 
 
-istream& operator>>(istream& i, Original& ins)
+istream& operator>>(istream& i, TOriginal& ins)
 {
   char name[256];
   int year;
@@ -82,9 +87,9 @@ istream& operator>>(istream& i, Original& ins)
     count = 0;
   if (year < 1901)
     count = 1901;
-  ins.set_count(count);
-  ins.set_name(name);
-  ins.set_orchestra(orch);
-  ins.set_year_of_made(year);
+  ins.SetCount(count);
+  ins.SetName(name);
+  ins.SetOrchestra(orch);
+  ins.SetYearOfMade(year);
   return i;
 }

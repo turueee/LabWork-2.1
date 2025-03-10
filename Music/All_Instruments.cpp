@@ -4,13 +4,13 @@ using namespace std;
 
 
 //Конструкторы
-All_Instruments::All_Instruments()
+TAllInstruments::TAllInstruments()
 {
   name = nullptr;
   count = 0;
 }
 
-All_Instruments::All_Instruments(int count_):All_Instruments::All_Instruments()
+TAllInstruments::TAllInstruments(int count_):TAllInstruments::TAllInstruments()
 {
   if (count_ < 0)
   {
@@ -19,25 +19,30 @@ All_Instruments::All_Instruments(int count_):All_Instruments::All_Instruments()
   else
     count = count_;
 }
-All_Instruments::All_Instruments(All_Instruments& ins)
+TAllInstruments::TAllInstruments(TAllInstruments& ins)
 {
-  count = ins.get_count();
-  name = new char[256];
-  int i = 0;
-  while (ins.get_name()[i] != '\0')
+  count = ins.GetCount();
+  if (ins.GetName() != nullptr)
   {
-    name[i] = ins.get_name()[i];
-    ++i;
+    name = new char[256];
+    int i = 0;
+    while (ins.GetName()[i] != '\0')
+    {
+      name[i] = ins.GetName()[i];
+      ++i;
+    }
+    name[i] = '\0';
   }
-  name[i] = '\0';
+  else
+    name = nullptr;
 }
 //Деструкторы
-All_Instruments::~All_Instruments()
+TAllInstruments::~TAllInstruments()
 {
   delete[] name;
 }
 //Сеттеры
-void All_Instruments::set_name(char* name_)
+void TAllInstruments::SetName(char* name_)
 {
   name = new char[256];
   int i = 0;
@@ -48,13 +53,13 @@ void All_Instruments::set_name(char* name_)
   }
   name[i] = '\0';
 }
-void All_Instruments::set_count(int count_)
+void TAllInstruments::SetCount(int count_)
 {
   if (count_ >= 0)
     count = count_;
 }
 //Геттеры
-char* All_Instruments::get_name()
+char* TAllInstruments::GetName()
 {
   if (name != nullptr)
     return name;
@@ -62,18 +67,18 @@ char* All_Instruments::get_name()
     return nullptr;
 }
 
-int All_Instruments::get_count()
+int TAllInstruments::GetCount()
 {
   return count;
 }
 
 
-ostream& operator<<(ostream& o, All_Instruments& ins)
+ostream& operator<<(ostream& o, TAllInstruments& ins)
 {
-  o << "Musical instrument: " << ins.get_name() << "\n" << "Count: " << ins.get_count() << endl;
+  o << "Musical instrument: " << ins.GetName() << "\n" << "Count: " << ins.GetCount() << endl;
   return o;
 }
-istream& operator>>(istream& i, All_Instruments& ins)
+istream& operator>>(istream& i, TAllInstruments& ins)
 {
   int count;
   char name[256];
@@ -83,7 +88,7 @@ istream& operator>>(istream& i, All_Instruments& ins)
   i >> count;
   if (count < 0)
     count = 0;
-  ins.set_count(count);
-  ins.set_name(name);
+  ins.SetCount(count);
+  ins.SetName(name);
   return i;
 }

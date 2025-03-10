@@ -1,70 +1,75 @@
 #include "Symphonic.h"
 
-Symphonic::Symphonic()
+TSymphonic::TSymphonic()
 {
-  standart_count_in_orchestra = 0;
+  standartCountInOrchestra = 0;
 }
 
 
-Symphonic::Symphonic(int count_, int scount):Symphonic::Symphonic()
+TSymphonic::TSymphonic(int count_, int scount):TSymphonic::TSymphonic()
 {
   if (count_ < 0 || scount < 0)
     throw(1);
   else
   {
     count = count_;
-    standart_count_in_orchestra = scount;
+    standartCountInOrchestra = scount;
   }
 }
 
 
-Symphonic::Symphonic(Symphonic& ins)
+TSymphonic::TSymphonic(TSymphonic& ins)
 {
-  count = ins.get_count();
-  name = new char[256];
-  int i = 0;
-  while (ins.get_name()[i] != '\0')
+  count = ins.GetCount();
+  if (ins.GetName() != nullptr)
   {
-    name[i] = ins.get_name()[i];
-    ++i;
+    name = new char[256];
+    int i = 0;
+    while (ins.GetName()[i] != '\0')
+    {
+      name[i] = ins.GetName()[i];
+      ++i;
+    }
+    name[i] = '\0';
   }
-  name[i] = '\0';
-  orchestra = ins.get_orchestra();
-  standart_count_in_orchestra = ins.get_standart_count_in_orchestra();
+  else
+    name = nullptr;
+  orchestra = ins.GetOrchestra();
+  standartCountInOrchestra = ins.GetStandartCountInOrchestra();
 }
 
 
-Symphonic::~Symphonic()
+TSymphonic::~TSymphonic()
 {
 }
 
 
-int Symphonic::get_standart_count_in_orchestra()
+int TSymphonic::GetStandartCountInOrchestra()
 {
-  return standart_count_in_orchestra;
+  return standartCountInOrchestra;
 }
 
 
-void Symphonic::set_standart_count_in_orchestra(int scount)
+void TSymphonic::SetStandartCountInOrchestra(int scount)
 {
   if (scount < 0)
     scount = 0;
-  standart_count_in_orchestra = scount;
+  standartCountInOrchestra = scount;
 }
 
 
-ostream& operator<<(ostream& o, Symphonic& ins)
+ostream& operator<<(ostream& o, TSymphonic& ins)
 {
   cout << "This instrument is symphonic\n";
-  if (ins.get_orchestra() == true)
-    o << "Musical Instrument: " << ins.get_name() << "\nStandart count in orchestra: " << ins.get_standart_count_in_orchestra() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
+  if (ins.GetOrchestra() == true)
+    o << "Musical Instrument: " << ins.GetName() << "\nStandart count in orchestra: " << ins.GetStandartCountInOrchestra() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument in orchestra." << endl;
   else
-    o << "Musical Instrument: " << ins.get_name() << "\nStandart count in orchestra: " << ins.get_standart_count_in_orchestra() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
+    o << "Musical Instrument: " << ins.GetName() << "\nStandart count in orchestra: " << ins.GetStandartCountInOrchestra() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument not in orchestra." << endl;
   return o;
 }
 
 
-istream& operator>>(istream& i, Symphonic& ins)
+istream& operator>>(istream& i, TSymphonic& ins)
 {
   char name[256];
   int scount;
@@ -82,9 +87,9 @@ istream& operator>>(istream& i, Symphonic& ins)
     count = 0;
   if (scount < 0)
     scount = 0;
-  ins.set_count(count);
-  ins.set_name(name);
-  ins.set_orchestra(orch);
-  ins.set_standart_count_in_orchestra(scount);
+  ins.SetCount(count);
+  ins.SetName(name);
+  ins.SetOrchestra(orch);
+  ins.SetStandartCountInOrchestra(scount);
   return i;
 }

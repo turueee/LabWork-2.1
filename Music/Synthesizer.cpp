@@ -2,12 +2,12 @@
 
 
 
-Synthesizer::Synthesizer()
+TSynthesizer::TSynthesizer()
 {
-  name_of_parent = nullptr;
+  nameOfParent = nullptr;
 }
 
-Synthesizer::Synthesizer(int count_) :Synthesizer::Synthesizer()
+TSynthesizer::TSynthesizer(int count_) :TSynthesizer::TSynthesizer()
 {
   if (count_ < 0)
   {
@@ -16,56 +16,67 @@ Synthesizer::Synthesizer(int count_) :Synthesizer::Synthesizer()
   else
     count = count_;
 }
-Synthesizer::Synthesizer(Synthesizer& ins)
+TSynthesizer::TSynthesizer(TSynthesizer& ins)
 {
-  count = ins.get_count();
+  count = ins.GetCount();
   name = new char[256];
-  int i = 0;
-  while (ins.get_name()[i] != '\0')
+  if (ins.GetName() != nullptr)
   {
-    name[i] = ins.get_name()[i];
-    ++i;
+    int i = 0;
+    while (ins.GetName()[i] != '\0')
+    {
+      name[i] = ins.GetName()[i];
+      ++i;
+    }
+    name[i] = '\0';
   }
-  name[i] = '\0';
-  orchestra = ins.get_orchestra();
-  name_of_parent = new char[256];
-  i = 0;
-  while (ins.get_name_of_parent()[i] != '\0')
+  else
+    name = nullptr;
+  orchestra = ins.GetOrchestra();
+  if (ins.GetNameOfParent() != nullptr)
   {
-    name_of_parent[i] = ins.get_name_of_parent()[i];
-    ++i;
+    nameOfParent = new char[256];
+    int i = 0;
+    while (ins.GetNameOfParent()[i] != '\0')
+    {
+      nameOfParent[i] = ins.GetNameOfParent()[i];
+      ++i;
+    }
+    nameOfParent[i] = '\0';
   }
+  else
+    nameOfParent = nullptr;
 }
-Synthesizer::~Synthesizer()
+TSynthesizer::~TSynthesizer()
   {
-    delete[] name_of_parent;
+    delete[] nameOfParent;
   }
-char* Synthesizer::get_name_of_parent()
+char* TSynthesizer::GetNameOfParent()
   {
-    return name_of_parent;
+    return nameOfParent;
   }
-void Synthesizer::set_name_of_parent(char* name_of_parent_)
+void TSynthesizer::SetNameOfParent(char* name_of_parent_)
   {
-    name_of_parent = new char[256];
+    nameOfParent = new char[256];
     int i = 0;
     while (name_of_parent_[i] != '\0')
     {
-      name_of_parent[i] = name_of_parent_[i];
+      nameOfParent[i] = name_of_parent_[i];
       ++i;
     }
-    name_of_parent[i] = '\0';
+    nameOfParent[i] = '\0';
   }
 
-ostream& operator<<(ostream& o, Synthesizer& ins)
+ostream& operator<<(ostream& o, TSynthesizer& ins)
 {
   cout << "This instrument is synthesizer\n";
-  if (ins.get_orchestra() == true)
-    o << "Musical Instrument: " << ins.get_name() << "\nName of parent: " << ins.get_name_of_parent() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
+  if (ins.GetOrchestra() == true)
+    o << "Musical Instrument: " << ins.GetName() << "\nName of parent: " << ins.GetNameOfParent() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument in orchestra." << endl;
   else
-    o << "Musical Instrument: " << ins.get_name() << "\nName of parent: " << ins.get_name_of_parent() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
+    o << "Musical Instrument: " << ins.GetName() << "\nName of parent: " << ins.GetNameOfParent() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument not in orchestra." << endl;
   return o;
 }
-istream& operator>>(istream& i, Synthesizer& ins)
+istream& operator>>(istream& i, TSynthesizer& ins)
 {
   char name[256];
   char name_of_parent[256];
@@ -81,9 +92,9 @@ istream& operator>>(istream& i, Synthesizer& ins)
   i >> orch;
   if (count < 0)
     count = 0;
-  ins.set_count(count);
-  ins.set_name(name);
-  ins.set_orchestra(orch);
-  ins.set_name_of_parent(name_of_parent);
+  ins.SetCount(count);
+  ins.SetName(name);
+  ins.SetOrchestra(orch);
+  ins.SetNameOfParent(name_of_parent);
   return i;
 }

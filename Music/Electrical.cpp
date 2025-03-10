@@ -1,12 +1,12 @@
 #include "Electrical.h"
 
-Electrical::Electrical()
+TElectrical::TElectrical()
 {
   orchestra = false;
 }
 
 
-Electrical::Electrical(int count_) :Electrical::Electrical()
+TElectrical::TElectrical(int count_) :TElectrical::TElectrical()
 {
   if (count_ < 0)
   {
@@ -15,44 +15,48 @@ Electrical::Electrical(int count_) :Electrical::Electrical()
   else
     count = count_;
 }
-Electrical::Electrical(Electrical& ins)
+TElectrical::TElectrical(TElectrical& ins)
 {
-  count = ins.get_count();
-  name = new char[256];
-  int i = 0;
-  while (ins.get_name()[i] != '\0')
+  count = ins.GetCount();
+  if (ins.GetName() != nullptr)
   {
-    name[i] = ins.get_name()[i];
-    ++i;
+    name = new char[256];
+    int i = 0;
+    while (ins.GetName()[i] != '\0')
+    {
+      name[i] = ins.GetName()[i];
+      ++i;
+    }
+    name[i] = '\0';
   }
-  name[i] = '\0';
-  orchestra = ins.get_orchestra();
+  name = nullptr;
+  orchestra = ins.GetOrchestra();
 }
-Electrical::~Electrical()
+TElectrical::~TElectrical()
 {
 }
 
-bool Electrical::get_orchestra()
+bool TElectrical::GetOrchestra()
 {
   return orchestra;
 }
 
-void Electrical::set_orchestra(bool orch)
+void TElectrical::SetOrchestra(bool orch)
 {
   orchestra = orch;
 }
 
 
-ostream& operator<<(ostream& o, Electrical& ins)
+ostream& operator<<(ostream& o, TElectrical& ins)
 {
   cout << "This instrument is electrical\n";
-  if (ins.get_orchestra() == true)
-    o << "Musical Instrument: " << ins.get_name() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
+  if (ins.GetOrchestra() == true)
+    o << "Musical Instrument: " << ins.GetName() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument in orchestra." << endl;
   else
-    o << "Musical Instrument: " << ins.get_name() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
+    o << "Musical Instrument: " << ins.GetName() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument not in orchestra." << endl;
   return o;
 }
-istream& operator>>(istream& i, Electrical& ins)
+istream& operator>>(istream& i, TElectrical& ins)
 {
   char name[256];
   int count = 0;
@@ -65,8 +69,8 @@ istream& operator>>(istream& i, Electrical& ins)
   i >> orch;
   if (count < 0)
     count = 0;
-  ins.set_count(count);
-  ins.set_name(name);
-  ins.set_orchestra(orch);
+  ins.SetCount(count);
+  ins.SetName(name);
+  ins.SetOrchestra(orch);
   return i;
 }

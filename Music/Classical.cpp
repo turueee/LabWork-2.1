@@ -1,11 +1,11 @@
 #include "Classical.h"
 
-Classical::Classical():All_Instruments()
+TClassical::TClassical():TAllInstruments()
 {
   orchestra = false;
 }
 
-Classical::Classical(int count_) :Classical::Classical()
+TClassical::TClassical(int count_) :TClassical::TClassical()
 {
   if (count_ < 0)
   {
@@ -14,44 +14,49 @@ Classical::Classical(int count_) :Classical::Classical()
   else
     count = count_;
 }
-Classical::Classical(Classical& ins)
+TClassical::TClassical(TClassical& ins)
 {
-  count = ins.get_count();
-  name = new char[256];
-  int i = 0;
-  while (ins.get_name()[i] != '\0')
+  count = ins.GetCount();
+  if (ins.GetName() != nullptr)
   {
-    name[i] = ins.get_name()[i];
-    ++i;
+    name = new char[256];
+    int i = 0;
+    while (ins.GetName()[i] != '\0')
+    {
+      name[i] = ins.GetName()[i];
+      ++i;
+    }
+    name[i] = '\0';
   }
-  name[i] = '\0';
-  orchestra = ins.get_orchestra();
+  else
+    name = nullptr;
+  orchestra = ins.GetOrchestra();
 }
-Classical::~Classical()
+TClassical::~TClassical()
 {
 }
 
-bool Classical::get_orchestra()
+bool TClassical::GetOrchestra()
 {
   return orchestra;
 }
 
-void Classical::set_orchestra(bool orch)
+void TClassical::SetOrchestra(bool orch)
 {
   orchestra = orch;
 }
 
 
-ostream& operator<<(ostream& o, Classical& ins)
+ostream& operator<<(ostream& o, TClassical& ins)
 {
   cout << "This instrument is classical\n";
-  if (ins.get_orchestra() == true)
-    o << "Musical Instrument: " << ins.get_name() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
+  if (ins.GetOrchestra() == true)
+    o << "Musical Instrument: " << ins.GetName() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument in orchestra." << endl;
   else
-    o << "Musical Instrument: " << ins.get_name() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
+    o << "Musical Instrument: " << ins.GetName() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument not in orchestra." << endl;
   return o;
 }
-istream& operator>>(istream& i, Classical& ins)
+istream& operator>>(istream& i, TClassical& ins)
 {
   char name[256];
   int count = 0;
@@ -64,8 +69,8 @@ istream& operator>>(istream& i, Classical& ins)
   i >> orch;
   if (count < 0)
     count = 0;
-  ins.set_count(count);
-  ins.set_name(name);
-  ins.set_orchestra(orch);
+  ins.SetCount(count);
+  ins.SetName(name);
+  ins.SetOrchestra(orch);
   return i;
 }

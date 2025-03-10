@@ -1,12 +1,12 @@
 #include <Folk.h>
 
-Folk::Folk()
+TFolk::TFolk()
 {
   country = nullptr;
 }
 
 
-Folk::Folk(int count_) :Folk::Folk()
+TFolk::TFolk(int count_) :TFolk::TFolk()
 {
   if (count_ < 0)
   {
@@ -17,35 +17,47 @@ Folk::Folk(int count_) :Folk::Folk()
 }
 
 
-Folk::Folk(Folk& ins)
+TFolk::TFolk(TFolk& ins)
 {
-  count = ins.get_count();
+  count = ins.GetCount();
   name = new char[256];
   int i = 0;
-  while (ins.get_name()[i] != '\0')
+  if (ins.GetName() != nullptr)
   {
-    name[i] = ins.get_name()[i];
-    ++i;
+    while (ins.GetName()[i] != '\0')
+    {
+      name[i] = ins.GetName()[i];
+      ++i;
+    }
+    name[i] = '\0';
   }
-  name[i] = '\0';
-  orchestra = ins.get_orchestra();
+  else
+  {
+    name = nullptr;
+  }
+  orchestra = ins.GetOrchestra();
   country = new char[256];
   i = 0;
-  while (ins.get_country()[i] != '\0')
+  if (ins.GetCountry() != nullptr)
   {
-    name[i] = ins.get_country()[i];
-    ++i;
+    while (ins.GetCountry()[i] != '\0')
+    {
+      country[i] = ins.GetCountry()[i];
+      ++i;
+    }
+    country[i] = '\0';
   }
+  country = nullptr;
 }
-Folk::~Folk()
+TFolk::~TFolk()
 {
   delete[] country;
 }
-char* Folk::get_country()
+char* TFolk::GetCountry()
 {
   return country;
 }
-void Folk::set_country(char* country_)
+void TFolk::SetCountry(char* country_)
 {
   country = new char[256];
   int i = 0;
@@ -57,16 +69,16 @@ void Folk::set_country(char* country_)
   country[i] = '\0';
 }
 
-ostream& operator<<(ostream& o, Folk& ins)
+ostream& operator<<(ostream& o, TFolk& ins)
 {
   cout << "This instrument is folk\n";
-  if (ins.get_orchestra() == true)
-    o << "Musical Instrument: " << ins.get_name() << "\nCountry: " << ins.get_country() << "\n" << "Count: " << ins.get_count() << "\nThis instrument in orchestra." << endl;
+  if (ins.GetOrchestra() == true)
+    o << "Musical Instrument: " << ins.GetName() << "\nCountry: " << ins.GetCountry() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument in orchestra." << endl;
   else
-    o << "Musical Instrument: " << ins.get_name() << "\nCountry: " << ins.get_country() << "\n" << "Count: " << ins.get_count() << "\nThis instrument not in orchestra." << endl;
+    o << "Musical Instrument: " << ins.GetName() << "\nCountry: " << ins.GetCountry() << "\n" << "Count: " << ins.GetCount() << "\nThis instrument not in orchestra." << endl;
   return o;
 }
-istream& operator>>(istream& i, Folk& ins)
+istream& operator>>(istream& i, TFolk& ins)
 {
   char name[256];
   char country[256];
@@ -82,9 +94,9 @@ istream& operator>>(istream& i, Folk& ins)
   i >> orch;
   if (count < 0)
     count = 0;
-  ins.set_count(count);
-  ins.set_name(name);
-  ins.set_orchestra(orch);
-  ins.set_country(country);
+  ins.SetCount(count);
+  ins.SetName(name);
+  ins.SetOrchestra(orch);
+  ins.SetCountry(country);
   return i;
 }

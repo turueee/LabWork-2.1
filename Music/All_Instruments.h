@@ -2,25 +2,25 @@
 #include <iostream>
 using namespace std;
 
-class All_Instruments
+class TAllInstruments
 {
 protected:
   char* name;
   int count;
 public:
   //Конструкторы
-  All_Instruments();
-  All_Instruments(int count_);
-  All_Instruments(All_Instruments& ins);
+  TAllInstruments();
+  TAllInstruments(int count_);
+  TAllInstruments(TAllInstruments& ins);
   //Деструктор
-  virtual ~All_Instruments();
+  virtual ~TAllInstruments();
   //Сеттеры
-  virtual void set_name(char* name_);
-  virtual void set_count(int count_);
+  virtual void SetName(char* name_);
+  virtual void SetCount(int count_);
   //Геттеры
-  virtual char* get_name();
-  virtual int get_count();
+  virtual char* GetName();
+  virtual int GetCount();
   //
-  friend ostream& operator<<(ostream& o, All_Instruments& ins);
-  friend istream& operator>>(istream& i, All_Instruments& ins);
+  friend ostream& operator<<(ostream& o, TAllInstruments& ins);
+  friend istream& operator>>(istream& i, TAllInstruments& ins);
 };
