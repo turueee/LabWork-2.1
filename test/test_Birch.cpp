@@ -46,7 +46,7 @@ TEST(TAllInstruments, can_set_count)
 
 
 ///Тесты для класса TСlassical
-TEST(TClassical, can_create_TСlassical_with_positive_count)
+TEST(TClassical, can_create_TClassical_with_positive_count)
 {
   ASSERT_NO_THROW(TClassical ins(8));
 }
