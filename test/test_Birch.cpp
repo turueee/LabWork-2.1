@@ -9,359 +9,395 @@
 #include <gtest.h>
 
 
-///Тесты для класса All_Instruments
-TEST(All_Instruments, can_create_All_instruments_with_positive_count)
+///Тесты для класса TAllInstruments
+TEST(TAllInstruments, can_create_TAllInstruments_with_positive_count)
 {
-  ASSERT_NO_THROW(All_Instruments ins(8));
+  ASSERT_NO_THROW(TAllInstruments ins(8));
 }
 
 
-TEST(All_Instruments, can_get_count)
+TEST(TAllInstruments, can_get_count)
 {
-  All_Instruments ins(8);
-
-  EXPECT_NEAR(8, ins.get_count(), 0.000001);
+  TAllInstruments ins(8);
+  EXPECT_NEAR(8, ins.GetCount(), 0.000001);
 }
 
 
-TEST(All_Instruments, throws_when_create_instrument_with_negative_count)
+TEST(TAllInstruments, can_copy)
 {
-  ASSERT_ANY_THROW(All_Instruments ins(-4));
+  TAllInstruments ins(8);
+  TAllInstruments b(ins);
 }
 
 
-TEST(All_Instruments, can_set_count)
+TEST(TAllInstruments, throws_when_create_instrument_with_negative_count)
 {
-  All_Instruments ins(10);
-
-  ins.set_count(3);
-  EXPECT_NE(0, ins.get_count());
+  ASSERT_ANY_THROW(TAllInstruments ins(-4));
 }
 
 
-///Тесты для класса Сlassical
-TEST(Classical, can_create_Classical_with_positive_count)
+TEST(TAllInstruments, can_set_count)
 {
-  ASSERT_NO_THROW(Classical ins(8));
+  TAllInstruments ins(10);
+
+  ins.SetCount(3);
+  EXPECT_NE(0, ins.GetCount());
 }
 
 
-TEST(Classical, can_get_count)
+///Тесты для класса TСlassical
+TEST(TClassical, can_create_TСlassical_with_positive_count)
 {
-  Classical ins(8);
-
-  EXPECT_NEAR(8, ins.get_count(), 0.000001);
+  ASSERT_NO_THROW(TClassical ins(8));
 }
 
 
-TEST(Classical, throws_when_create_instrument_with_negative_count)
+TEST(TClassical, can_get_count)
 {
-  ASSERT_ANY_THROW(Classical ins(-4));
+  TClassical ins(8);
+  EXPECT_NEAR(8, ins.GetCount(), 0.000001);
 }
 
 
-TEST(Classical, can_set_count)
+TEST(TClassical, can_copy)
 {
-  Classical ins(10);
-
-  ins.set_count(3);
-  EXPECT_NE(0, ins.get_count());
+  TClassical ins(8);
+  TClassical b(ins);
 }
 
 
-TEST(Classical, can_get_orchestra)
+TEST(TClassical, throws_when_create_instrument_with_negative_count)
 {
-  Classical ins(8);
-
-  EXPECT_NEAR(0, ins.get_orchestra(), 0.000001);
+  ASSERT_ANY_THROW(TClassical ins(-4));
 }
 
 
-TEST(Classical, can_set_orchestra)
+TEST(TClassical, can_set_count)
 {
-  Classical ins(10);
+  TClassical ins(10);
+  ins.SetCount(3);
+  EXPECT_NE(0, ins.GetCount());
+}
 
-  ins.set_orchestra(1);
-  EXPECT_NE(0, ins.get_orchestra());
+
+TEST(TClassical, can_get_orchestra)
+{
+  TClassical ins(8);
+
+  EXPECT_NEAR(0, ins.GetOrchestra(), 0.000001);
+}
+
+
+TEST(TClassical, can_set_orchestra)
+{
+  TClassical ins(10);
+  ins.SetOrchestra(1);
+  EXPECT_NE(0, ins.GetOrchestra());
 }
 
 
 ///Тесты для класса Electrical
-TEST(Electrical, can_create_Electrical_with_positive_count)
+TEST(TElectrical, can_create_TElectrical_with_positive_count)
 {
-  ASSERT_NO_THROW(Electrical ins(8));
+  ASSERT_NO_THROW(TElectrical ins(8));
 }
 
 
-TEST(Electrical, can_get_count)
+TEST(TElectrical, can_get_count)
 {
-  Electrical ins(8);
-
-  EXPECT_NEAR(8, ins.get_count(), 0.000001);
+  TElectrical ins(8);
+  EXPECT_NEAR(8, ins.GetCount(), 0.000001);
 }
 
 
-TEST(Electrical, throws_when_create_instrument_with_negative_count)
+TEST(TElectrical, can_copy)
 {
-  ASSERT_ANY_THROW(Electrical ins(-4));
+  TElectrical ins(8);
+  TElectrical b(ins);
 }
 
 
-TEST(Electrical, can_set_count)
+TEST(TElectrical, throws_when_create_instrument_with_negative_count)
 {
-  Electrical ins(10);
-
-  ins.set_count(3);
-  EXPECT_NE(0, ins.get_count());
+  ASSERT_ANY_THROW(TElectrical ins(-4));
 }
 
 
-TEST(Electrical, can_get_orchestra)
+TEST(TElectrical, can_set_count)
 {
-  Electrical ins(8);
-
-  EXPECT_NEAR(0, ins.get_orchestra(), 0.000001);
+  TElectrical ins(10);
+  ins.SetCount(3);
+  EXPECT_NE(0, ins.GetCount());
 }
 
 
-TEST(Electrical, can_set_orchestra)
+TEST(TElectrical, can_get_orchestra)
 {
-  Electrical ins(10);
+  TElectrical ins(8);
 
-  ins.set_orchestra(1);
-  EXPECT_NE(0, ins.get_orchestra());
+  EXPECT_NEAR(0, ins.GetOrchestra(), 0.000001);
+}
+
+
+TEST(TElectrical, can_set_orchestra)
+{
+  TElectrical ins(10);
+
+  ins.SetOrchestra(1);
+  EXPECT_NE(0, ins.GetOrchestra());
 }
 
 
 ///Тесты для класса Folk
-TEST(Folk, can_create_Folk_with_positive_count)
+TEST(TFolk, can_create_TFolk_with_positive_count)
 {
-  ASSERT_NO_THROW(Folk ins(8));
+  ASSERT_NO_THROW(TFolk ins(8));
 }
 
 
-TEST(Folk, can_get_count)
+TEST(TFolk, can_get_count)
 {
-  Folk ins(8);
-
-  EXPECT_NEAR(8, ins.get_count(), 0.000001);
+  TFolk ins(8);
+  EXPECT_NEAR(8, ins.GetCount(), 0.000001);
 }
 
 
-TEST(Folk, throws_when_create_instrument_with_negative_count)
+TEST(TFolk, can_copy)
 {
-  ASSERT_ANY_THROW(Folk ins(-4));
+  TFolk ins(8);
+  TFolk b(ins);
 }
 
 
-TEST(Folk, can_set_count)
+TEST(TFolk, throws_when_create_instrument_with_negative_count)
 {
-  Folk ins(10);
-
-  ins.set_count(3);
-  EXPECT_NE(0, ins.get_count());
+  ASSERT_ANY_THROW(TFolk ins(-4));
 }
 
 
-TEST(Folk, can_get_orchestra)
+TEST(TFolk, can_set_count)
 {
-  Folk ins(8);
+  TFolk ins(10);
 
-  EXPECT_NEAR(0, ins.get_orchestra(), 0.000001);
+  ins.SetCount(3);
+  EXPECT_NE(0, ins.GetCount());
 }
 
 
-TEST(Folk, can_set_orchestra)
+TEST(TFolk, can_get_orchestra)
 {
-  Folk ins(10);
+  TFolk ins(8);
 
-  ins.set_orchestra(1);
-  EXPECT_NE(0, ins.get_orchestra());
+  EXPECT_NEAR(0, ins.GetOrchestra(), 0.000001);
+}
+
+
+TEST(TFolk, can_set_orchestra)
+{
+  TFolk ins(10);
+
+  ins.SetOrchestra(1);
+  EXPECT_NE(0, ins.GetOrchestra());
 }
 
 
 ///Тесты для класса Synthesizer
-TEST(Synthesizer, can_create_Synthesizer_with_positive_count)
+TEST(TSynthesizer, can_create_TSynthesizer_with_positive_count)
 {
-  ASSERT_NO_THROW(Synthesizer ins(8));
+  ASSERT_NO_THROW(TSynthesizer ins(8));
 }
 
 
-TEST(Synthesizer, can_get_count)
+TEST(TSynthesizer, can_get_count)
 {
-  Synthesizer ins(8);
-
-  EXPECT_NEAR(8, ins.get_count(), 0.000001);
+  TSynthesizer ins(8);
+  EXPECT_NEAR(8, ins.GetCount(), 0.000001);
 }
 
 
-TEST(Synthesizer, throws_when_create_instrument_with_negative_count)
+TEST(TSynthesizer, can_copy)
 {
-  ASSERT_ANY_THROW(Synthesizer ins(-4));
+  TSynthesizer ins(8);
+  TSynthesizer b(ins);
 }
 
 
-TEST(Synthesizer, can_set_count)
+TEST(TSynthesizer, throws_when_create_instrument_with_negative_count)
 {
-  Synthesizer ins(10);
-
-  ins.set_count(3);
-  EXPECT_NE(0, ins.get_count());
+  ASSERT_ANY_THROW(TSynthesizer ins(-4));
 }
 
 
-TEST(Synthesizer, can_get_orchestra)
+TEST(TSynthesizer, can_set_count)
 {
-  Synthesizer ins(8);
+  TSynthesizer ins(10);
 
-  EXPECT_NEAR(0, ins.get_orchestra(), 0.000001);
+  ins.SetCount(3);
+  EXPECT_NE(0, ins.GetCount());
 }
 
 
-TEST(Synthesizer, can_set_orchestra)
+TEST(TSynthesizer, can_get_orchestra)
 {
-  Folk ins(10);
+  TSynthesizer ins(8);
 
-  ins.set_orchestra(1);
-  EXPECT_NE(0, ins.get_orchestra());
+  EXPECT_NEAR(0, ins.GetOrchestra(), 0.000001);
+}
+
+
+TEST(TSynthesizer, can_set_orchestra)
+{
+  TSynthesizer ins(10);
+  ins.SetOrchestra(1);
+  EXPECT_NE(0, ins.GetOrchestra());
 }
 
 
 ///Тесты для класса Original
-TEST(Original, can_create_Original_with_positive_count)
+TEST(TOriginal, can_create_TOriginal_with_positive_count)
 {
-  ASSERT_NO_THROW(Original ins(8,1923));
+  ASSERT_NO_THROW(TOriginal ins(8,1923));
 }
 
 
-TEST(Original, can_get_count)
+TEST(TOriginal, can_get_count)
 {
-  Original ins(8, 1923);
-
-  EXPECT_NEAR(8, ins.get_count(), 0.000001);
+  TOriginal ins(8, 1923);
+  EXPECT_NEAR(8, ins.GetCount(), 0.000001);
 }
 
 
-TEST(Original, throws_when_create_instrument_with_negative_count)
+TEST(TOriginal, can_copy)
 {
-  ASSERT_ANY_THROW(Original ins(-4,1923));
+  TOriginal ins(8, 1923);
+  TOriginal b(ins);
 }
 
 
-TEST(Original, throws_when_create_instrument_with_unreal_date)
+TEST(TOriginal, throws_when_create_instrument_with_negative_count)
 {
-  ASSERT_ANY_THROW(Original ins(4, 1900));
+  ASSERT_ANY_THROW(TOriginal ins(-4,1923));
 }
 
 
-TEST(Original, can_set_count)
+TEST(TOriginal, throws_when_create_instrument_with_unreal_date)
 {
-  Original ins(8, 1923);
-
-  ins.set_count(3);
-  EXPECT_NE(0, ins.get_count());
+  ASSERT_ANY_THROW(TOriginal ins(4, 1900));
 }
 
 
-TEST(Original, can_get_orchestra)
+TEST(TOriginal, can_set_count)
 {
-  Original ins(8, 1923);
-
-  EXPECT_NEAR(0, ins.get_orchestra(), 0.000001);
+  TOriginal ins(8, 1923);
+  ins.SetCount(3);
+  EXPECT_NE(0, ins.GetCount());
 }
 
 
-TEST(Original, can_set_orchestra)
+TEST(TOriginal, can_get_orchestra)
 {
-  Original ins(8, 1923);
+  TOriginal ins(8, 1923);
 
-  ins.set_orchestra(1);
-  EXPECT_NE(0, ins.get_orchestra());
+  EXPECT_NEAR(0, ins.GetOrchestra(), 0.000001);
 }
 
 
-TEST(Original, can_get_year_of_made)
+TEST(TOriginal, can_set_orchestra)
 {
-  Original ins(8, 1923);
+  TOriginal ins(8, 1923);
 
-  EXPECT_NEAR(1923, ins.get_year_of_made(), 0.000001);
+  ins.SetOrchestra(1);
+  EXPECT_NE(0, ins.GetOrchestra());
 }
 
 
-TEST(Original, can_set_year_of_made)
+TEST(TOriginal, can_get_year_of_made)
 {
-  Original ins(8, 1923);
+  TOriginal ins(8, 1923);
 
-  ins.set_year_of_made(1905);
-  EXPECT_NE(0, ins.get_year_of_made());
+  EXPECT_NEAR(1923, ins.GetYearOfMade(), 0.000001);
+}
+
+
+TEST(TOriginal, can_set_year_of_made)
+{
+  TOriginal ins(8, 1923);
+
+  ins.SetYearOfMade(1905);
+  EXPECT_NE(0, ins.GetYearOfMade());
 }
 
 
 ///Тесты для класса Symphonic
-TEST(Symphonic, can_create_Symphonic_with_positive_count)
+TEST(TSymphonic, can_create_TSymphonic_with_positive_count)
 {
-  ASSERT_NO_THROW(Symphonic ins(8, 3));
+  ASSERT_NO_THROW(TSymphonic ins(8, 3));
 }
 
 
-TEST(Symphonic, can_get_count)
+TEST(TSymphonic, can_get_count)
 {
-  Symphonic ins(8, 3);
-
-  EXPECT_NEAR(8, ins.get_count(), 0.000001);
+  TSymphonic ins(8, 3);
+  EXPECT_NEAR(8, ins.GetCount(), 0.000001);
 }
 
 
-TEST(Symphonic, throws_when_create_instrument_with_negative_count)
+TEST(TSymphonic, can_copy)
 {
-  ASSERT_ANY_THROW(Symphonic ins(-4, 4));
+  TSymphonic ins(8, 3);
+  TSymphonic b(ins);
 }
 
 
-TEST(Symphonic, throws_when_create_instrument_with_negative_standart_count)
+TEST(TSymphonic, throws_when_create_instrument_with_negative_count)
 {
-  ASSERT_ANY_THROW(Symphonic ins(4, -5));
+  ASSERT_ANY_THROW(TSymphonic ins(-4, 4));
 }
 
 
-TEST(Symphonic, can_set_count)
+TEST(TSymphonic, throws_when_create_instrument_with_negative_standart_count)
 {
-  Symphonic ins(8, 1923);
-
-  ins.set_count(3);
-  EXPECT_NE(0, ins.get_count());
+  ASSERT_ANY_THROW(TSymphonic ins(4, -5));
 }
 
 
-TEST(Symphonic, can_get_orchestra)
+TEST(TSymphonic, can_set_count)
 {
-  Symphonic ins(8, 1923);
+  TSymphonic ins(8, 1923);
 
-  EXPECT_NEAR(0, ins.get_orchestra(), 0.000001);
+  ins.SetCount(3);
+  EXPECT_NE(0, ins.GetCount());
 }
 
 
-TEST(Symphonic, can_set_orchestra)
+TEST(TSymphonic, can_get_orchestra)
 {
-  Symphonic ins(8, 1923);
+  TSymphonic ins(8, 1923);
 
-  ins.set_orchestra(1);
-  EXPECT_NE(0, ins.get_orchestra());
+  EXPECT_NEAR(0, ins.GetOrchestra(), 0.000001);
 }
 
 
-TEST(Symphonic, can_get_standart_count)
+TEST(TSymphonic, can_set_orchestra)
 {
-  Symphonic ins(8, 1923);
+  TSymphonic ins(8, 1923);
 
-  EXPECT_NEAR(1923, ins.get_standart_count_in_orchestra(), 0.000001);
+  ins.SetOrchestra(1);
+  EXPECT_NE(0, ins.GetOrchestra());
 }
 
 
-TEST(Symphonic, can_set_standart_count)
+TEST(TSymphonic, can_get_standart_count)
 {
-  Symphonic ins(8, 1923);
+  TSymphonic ins(8, 1923);
+  EXPECT_NEAR(1923, ins.GetStandartCountInOrchestra(), 0.000001);
+}
 
-  ins.set_standart_count_in_orchestra(1905);
-  EXPECT_NE(0, ins.get_standart_count_in_orchestra());
+
+TEST(TSymphonic, can_set_standart_count)
+{
+  TSymphonic ins(8, 1923);
+
+  ins.SetStandartCountInOrchestra(1905);
+  EXPECT_NE(0, ins.GetStandartCountInOrchestra());
 }
