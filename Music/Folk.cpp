@@ -47,7 +47,8 @@ TFolk::TFolk(TFolk& ins)
     }
     country[i] = '\0';
   }
-  country = nullptr;
+  else
+    country = nullptr;
 }
 TFolk::~TFolk()
 {
