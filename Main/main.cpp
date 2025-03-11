@@ -12,12 +12,12 @@ using namespace std;
 
 int main()
 {
-	Folk arf;
+	TFolk arf;
 	///char name_[256];
 	///cin >> name_;
 	///a.set_name(name_);
 	cin >> arf;
 	cout << arf;
-	Folk b(arf);
+	TFolk b(arf);
 	cout << b;
 }
