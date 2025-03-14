@@ -8,16 +8,14 @@
 #include "Folk.h"
 
 using namespace std;
-
+void Polic(TAllInstruments a)
+{
+	cout << a.GetCount() * 8 << endl;
+}
 
 int main()
 {
 	TFolk arf;
-	///char name_[256];
-	///cin >> name_;
-	///a.set_name(name_);
 	cin >> arf;
-	cout << arf;
-	TFolk b(arf);
-	cout << b;
+	Polic(arf);
 }
